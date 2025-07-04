@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dreamy Bedtime Stories - Welcome</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Quicksand:wght@400;700&family=Baloo+2:wght@400;700&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+      .landing-container {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 0;
+        margin: 0;
+        position: relative;
+        z-index: 1;
+        width: 100vw;
+        height: 100vh;
+      }
+      .landing-logo {
+        font-family: 'Baloo 2', 'Comic Neue', 'Quicksand', 'Nunito', cursive, sans-serif;
+        font-size: 6.2rem;
+        color: #f89cab;
+        font-weight: 800;
+        margin-bottom: 3.5rem;
+        text-shadow: 1px 2px 0 #fff7, 0 1px 12px #b0e0f7cc;
+        letter-spacing: 1px;
+        user-select: none;
+      }
+      .enter-btn {
+        background: linear-gradient(90deg, #f89cab 0%, #ffb347 100%);
+        color: #fff;
+        padding: 1.5rem 4.5rem;
+        border-radius: 60px;
+        border: none;
+        font-family: 'Baloo 2', 'Comic Neue', 'Quicksand', sans-serif;
+        font-size: 2rem;
+        font-weight: 800;
+        letter-spacing: 1px;
+        box-shadow: 0 6px 24px #b0e0f799;
+        cursor: pointer;
+        transition: background 0.2s, transform 0.1s;
+        outline: none;
+        margin-bottom: 3.5rem;
+        margin-left: 0.2rem;
+      }
+      .enter-btn:hover, .enter-btn:focus {
+        background: linear-gradient(90deg, #ffe6a7 0%, #b0e0f7 100%);
+        color: #f89cab;
+        transform: translateY(-2px) scale(1.05);
+        box-shadow: 0 8px 24px #f8c3cd55;
+      }
+      @media (max-width: 768px) {
+        .landing-container {
+          padding-left: 7vw;
+          padding-top: 10vh;
+          align-items: flex-start;
+        }
+        .landing-logo {
+          font-size: 2.2rem;
+        }
+        .enter-btn {
+          font-size: 1.1rem;
+          padding: 1rem 2.2rem;
+        }
+      }
+    </style>
+</head>
+<body>
+    <div class="landing-container">
+        <div class="landing-logo" id="animated-logo"></div>
+        <button class="enter-btn" onclick="window.location.href='home.html'">Enter</button>
+    </div>
+<script>
+  // Animation for Dreamy Bedtime Stories logo, word by word
+  document.addEventListener('DOMContentLoaded', function() {
+    const logo = document.getElementById('animated-logo');
+    const words = ['Dreamy', 'Bedtime', 'Stories'];
+    let html = '';
+    words.forEach((word, i) => {
+      html += `<span class="logo-word" style="opacity:0; display:inline-block;">${word}</span> `;
+    });
+    logo.innerHTML = html.trim();
+    const spans = logo.querySelectorAll('.logo-word');
+    spans.forEach((span, i) => {
+      setTimeout(() => {
+        span.style.opacity = '1';
+        span.style.transition = 'opacity 0.45s cubic-bezier(.45,.05,.55,.95)';
+      }, 500 + i * 600);
+    });
+  });
+</script>
+</body>
+</html>
